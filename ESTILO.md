@@ -2,7 +2,7 @@
 
 ## Layout do Doc
 
-O Doc tem duas abas.
+O Doc tem duas abas. O quadro de status inclui a linha "Selos." com o significado de cada selo.
 
 - **Boletim** (aba principal), de cima para baixo: título e subtítulo; quadro de status (Status, Definido, Em aberto, Como aprovar, Feedback); rascunhos pendentes, do mais novo para o mais antigo; edições publicadas, da mais nova para a mais antiga.
 - **Glossário**: título, subtítulo e os termos aprovados em ordem alfabética. Termos propostos ficam no rascunho até a aprovação.
@@ -21,7 +21,7 @@ Aprovação por checkbox (lista BULLET_CHECKBOX do Docs):
 - Entrada apagada = descartada. Item sem marcação continua pendente.
 - Na edição publicada e na aba Glossário, nada tem checkbox.
 
-A API do Docs não informa se um checkbox está marcado. O estado se lê pelo read_file_content do Drive: item marcado vem riscado ("~~"), desmarcado vem limpo. Na exportação em PDF o checkbox aparece desenhado marcado ou vazio.
+A API do Docs não informa se um checkbox está marcado. O estado se lê pelo read_file_content do Drive: com includeComments=true, item marcado vem como "- [x]" e desmarcado como "- [ ]"; sem includeComments, marcado vem riscado ("~~") e desmarcado vem limpo. Na exportação em PDF o checkbox aparece desenhado marcado ou vazio.
 
 Entradas de estudo acadêmico usam o rótulo "Estudo." no lugar de "Fonte.", com referência curta (AUTOR et al., ano, revista, volume) e o DOI como link, e terminam com "(lido o resumo)" ou "(lido o texto completo)".
 
