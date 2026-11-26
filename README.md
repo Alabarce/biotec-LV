@@ -17,6 +17,7 @@ O histórico de commits é o registro do trabalho contínuo: um rascunho por sem
 
 | Nº | Data | Entradas | Pendências | Arquivo |
 |---|---|---|---|---|
+| 01 | 24/11/2026 | 3 | articulação, laboratório, métrica | [edição 01](edicoes/2026/01-2026-11-24-semana.md) |
 | 00 | 19/11/2026 | 1 (piloto) | métrica | [piloto](edicoes/2026/00-2026-11-19-piloto.md) |
 
 ## Rascunhos aguardando aprovação
@@ -24,7 +25,6 @@ O histórico de commits é o registro do trabalho contínuo: um rascunho por sem
 | Data | Entradas | Pendências | Arquivo |
 |---|---|---|---|
 | 26/11/2026 | 3, sendo 2 estudos (pré-drop de teste) | métrica, articulação | [pré-drop 2](rascunhos/2026-11-26-pre-drop-2.md) |
-| 24/11/2026 | 3 (pré-drop de teste) | articulação, laboratório, métrica | [pré-drop](rascunhos/2026-11-24-pre-drop.md) |
 
 ## Estrutura
 
