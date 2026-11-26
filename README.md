@@ -30,5 +30,6 @@ O histórico de commits é o registro do trabalho contínuo: um rascunho por sem
 
 - `edicoes/AAAA/NN-AAAA-MM-DD-*.md`: edições aprovadas, uma por arquivo.
 - `rascunhos/AAAA-MM-DD-*.md`: rascunhos semanais ainda não aprovados.
+- `GLOSSARIO.md`: termos aprovados, em ordem alfabética (espelho da aba Glossário).
 - `ESTILO.md`: paleta, tipografia, layout e papéis visuais do Boletim no Google Docs.
 - `ferramentas/lv_docs.py`: gera os comandos de formatação do Google Docs a partir de um modelo do documento.
