@@ -1,5 +1,19 @@
 # Estilo do Boletim LV
 
+## Layout do Doc
+
+O Doc tem duas abas.
+
+- **Boletim** (aba principal), de cima para baixo: título e subtítulo; quadro de status (Status, Definido, Em aberto, Como aprovar, Feedback); rascunhos pendentes, do mais novo para o mais antigo; edições publicadas, da mais nova para a mais antiga.
+- **Glossário**: título, subtítulo e os termos aprovados em ordem alfabética. Termos propostos ficam no rascunho até a aprovação.
+
+Cada rascunho: título "Rascunho da semana • DD/MM/AAAA" (h1draft), nota de aprovação, entradas, "Glossário (proposto)" e "Alertas de coerência".
+Cada edição: título "Edição NN • DD/MM/AAAA" (h1), e cada entrada com título (h2), selo e cartão. Alertas não entram na edição publicada; ficam no arquivo do git.
+
+Aprovação: comentário "aprovado" no título do rascunho (aprova tudo) ou numa entrada (aprova só ela); "descartar" descarta.
+
+Entradas de estudo acadêmico usam o rótulo "Estudo." no lugar de "Fonte.", com referência curta (AUTOR et al., ano, revista, volume) e o DOI como link, e terminam com "(lido o resumo)" ou "(lido o texto completo)".
+
 O Boletim vive no Google Docs. Os estilos nomeados do Docs não podem ser alterados pela API, então cada parágrafo recebe a formatação direto. A ferramenta `ferramentas/lv_docs.py` aplica tudo de uma vez a partir de um modelo do documento.
 
 ## Paleta

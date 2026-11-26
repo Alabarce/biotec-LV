@@ -7,6 +7,10 @@ Parágrafos novos levam "insert_at": o índice ORIGINAL (do read_doc atual) em q
 Uso:
   python3 -I ferramentas/lv_docs.py spec.json saida.json
 spec.json = {"doc": "<documentId>", "rev": "<revisionId do read_doc mais recente>", "paras": [...]}
+Campos opcionais do spec: "tab" (tabId da aba; padrão: primeira aba) e "absorb_last": true
+quando o último parágrafo novo deve usar a quebra de linha final que já existe no documento
+(caso de reescrever o corpo inteiro a partir de um índice). Com "reset_from", todos os
+parágrafos a partir desse índice têm bordas, sombreamento e recuos zerados antes do estilo.
 Papéis: title, subtitle, status, h1, h1draft, h2, note, tag, entry, gloss, alert, linkline.
 Veja ESTILO.md para o que cada papel significa.
 """
@@ -96,7 +100,30 @@ def build(paras, rev, doc):
         if isinstance(o,list): return [rnd(x) for x in o]
         return o
     return rnd({"documentId":doc,"requests":reqs+pr+tr,"writeControl":{"requiredRevisionId":rev}}),END
+def finish(out, end, spec):
+    reqs = out["requests"]
+    if spec.get("absorb_last"):
+        for r in reqs:
+            if "insertText" in r and r["insertText"]["text"].endswith("\n"):
+                r["insertText"]["text"] = r["insertText"]["text"][:-1]
+                break
+    if "reset_from" in spec:
+        n = sum(1 for r in reqs if "insertText" in r)
+        reqs.insert(n, {"updateParagraphStyle": {"range": {"startIndex": spec["reset_from"], "endIndex": end},
+            "paragraphStyle": {}, "fields": "borderTop,borderBottom,borderLeft,shading,indentStart,indentFirstLine,keepWithNext"}})
+    tab = spec.get("tab")
+    if tab:
+        for r in reqs:
+            body = next(iter(r.values()))
+            for k in ("location", "range"):
+                if k in body:
+                    body[k]["tabId"] = tab
+    for p in spec["paras"]:
+        assert "\u2014" not in p["text"] or p.get("keep_dash"), p["text"]
+    return out
+
 if __name__=="__main__":
     spec=json.load(open(sys.argv[1])); out,end=build(spec["paras"],spec["rev"],spec["doc"])
+    out=finish(out,end,spec)
     json.dump(out,open(sys.argv[2],"w"),ensure_ascii=False,separators=(',',':'))
     print(len(out["requests"]),end)
