@@ -7,14 +7,21 @@ O Doc tem duas abas.
 - **Boletim** (aba principal), de cima para baixo: título e subtítulo; quadro de status (Status, Definido, Em aberto, Como aprovar, Feedback); rascunhos pendentes, do mais novo para o mais antigo; edições publicadas, da mais nova para a mais antiga.
 - **Glossário**: título, subtítulo e os termos aprovados em ordem alfabética. Termos propostos ficam no rascunho até a aprovação.
 
-Cada rascunho: título "Rascunho da semana • DD/MM/AAAA" (h1draft), nota de aprovação, entradas e, se houver, "Glossário (proposto)".
+Cada rascunho: título "Rascunho da semana • DD/MM/AAAA" (h1draft), nota de aprovação, checkbox "Aprovar este rascunho", entradas e, se houver, "Glossário (proposto)".
 Cada edição: título "Edição NN • DD/MM/AAAA" (h1), e cada entrada com título (h2), selo e cartão.
 
 Alertas de coerência não aparecem no Boletim nem no git. Ficam só no Contexto privado, numa seção "Alertas de coerência" com um bloco por data (h2), do mais recente para o mais antigo, cada alerta no papel alert.
 
 O glossário aprovado fica na aba Glossário e em GLOSSARIO.md, em ordem alfabética.
 
-Aprovação: comentário "aprovado" no título do rascunho (aprova tudo) ou numa entrada (aprova só ela); "descartar" descarta.
+Aprovação por checkbox (lista BULLET_CHECKBOX do Docs):
+- "Aprovar este rascunho", logo abaixo da nota de cada rascunho, aprova tudo.
+- A linha do selo de cada entrada é um checkbox e aprova só aquela entrada.
+- Cada termo do "Glossário (proposto)" é um checkbox e aprova só aquele termo.
+- Entrada apagada = descartada. Item sem marcação continua pendente.
+- Na edição publicada e na aba Glossário, nada tem checkbox.
+
+A API do Docs não informa se um checkbox está marcado. O estado se lê pelo read_file_content do Drive: item marcado vem riscado ("~~"), desmarcado vem limpo. Na exportação em PDF o checkbox aparece desenhado marcado ou vazio.
 
 Entradas de estudo acadêmico usam o rótulo "Estudo." no lugar de "Fonte.", com referência curta (AUTOR et al., ano, revista, volume) e o DOI como link, e terminam com "(lido o resumo)" ou "(lido o texto completo)".
 

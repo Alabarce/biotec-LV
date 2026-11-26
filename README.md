@@ -7,7 +7,7 @@ Cada entrada liga **fonte ou estudo → achado → implicação**: o que uma not
 ## Como o catálogo cresce
 
 1. **Sábado de manhã:** sai o rascunho da semana, com levantamento e checagem de coerência. Ele entra no topo do Boletim (Google Docs) e em `rascunhos/`, num commit `rascunho:`.
-2. **Aprovação:** um comentário "aprovado" no título do rascunho (ou numa entrada) libera a publicação. O rascunho aprovado vira uma edição em `edicoes/AAAA/`, num commit `aprovação:` do responsável, e os termos novos vão para a aba Glossário.
+2. **Aprovação:** marcar o checkbox "Aprovar este rascunho" (ou o checkbox de uma entrada ou termo) libera a publicação. O rascunho aprovado vira uma edição em `edicoes/AAAA/`, num commit `aprovação:` do responsável, e os termos novos vão para a aba Glossário.
 
 O histórico de commits é o registro do trabalho contínuo: um rascunho por semana e uma aprovação por edição.
 
